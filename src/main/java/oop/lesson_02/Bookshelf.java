@@ -30,6 +30,16 @@ public class Bookshelf {
     }
 
     /**
+     * Возвращает полку по индексу
+     * 
+     * @param index индекс номера полки (начинается от 0)
+     * @return полка
+     */
+    public Shelf getShelf(int index){
+        return shelves.get(index);
+    }
+
+    /**
      * Добавляет полку в шкаф
      * 
      * @param shelf полка
@@ -41,6 +51,20 @@ public class Bookshelf {
         }
         shelves.add(shelf);
         return true;
+    }
+
+    /**
+     * возвращает количество книг в шкафу на всех полках
+     * 
+     * @return количество книг
+     */
+    public int getNumOfBooks() {
+        int num = 0;
+
+        for (Shelf shelf : shelves) {
+            num += shelf.getNumOfBooks();
+        }
+        return num;
     }
 
     @Override

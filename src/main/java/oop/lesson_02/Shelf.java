@@ -24,8 +24,43 @@ public class Shelf {
      * 
      * @param book новая книга
      */
-    public void addBook(Book book){
+    public void addBook(Book book) {
         books.add(book);
+    }
+
+    /**
+     * удаляет книгу с полки
+     * 
+     * @param book индекс книги которую надо удалить
+     */
+    public void removeBook(int index) {
+        books.remove(index);
+    }
+
+    /**
+     * возвращает количество книг на полке
+     * 
+     * @return количество книг
+     */
+    public int getNumOfBooks() {
+        return books.size();
+    }
+
+    /**
+     * ищет книгу по автору
+     * 
+     * @param author автор книги
+     * @return -1 если не найдено, иначе индекс данной книги
+     */
+    public int getBookByAuthor(String author) {
+        int idx = 0;
+        for (Book book : books) {
+            if (book.getAuthor().equals(author)) {
+                return idx;
+            }
+            ++idx;
+        }
+        return -1;
     }
 
     @Override
